@@ -1,6 +1,6 @@
-#Black Jack Simulator
+# Black Jack Simulator
 
-##Description
+## Description
 Simulates a game of Black Jack between two players.
 
 
