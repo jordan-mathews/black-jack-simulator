@@ -8,21 +8,21 @@ public class Player implements Comparable<Player>{
   private String name;
   private int drawLimit;
   private int score;
-  private List<Card> hand;
+  private final List<Card> hand;
 
 
   public Player(String name){
     this.name = name;
     this.drawLimit = 21;
     this.score = 0;
-    this.hand = new ArrayList<Card>();
+    this.hand = new ArrayList<>();
   }
 
   public Player(String name, int drawLimit){
     this.name = name;
     this.drawLimit = drawLimit;
     this.score = 0;
-    this.hand = new ArrayList<Card>();
+    this.hand = new ArrayList<>();
   }
 
   public String getName(){

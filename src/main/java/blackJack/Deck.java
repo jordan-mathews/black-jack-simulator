@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class Deck {
   public static final int STANDARD_DECK_SIZE = 52;
-  private List<Card> cards;
+  private final List<Card> cards;
 
   public Deck(){
     this.cards = initializeDeck();
@@ -19,11 +19,11 @@ public class Deck {
   }
 
   public List<Card> getCards(){
-    return this.cards;
+    return cards;
   }
 
   public List<Card> initializeDeck(){
-    List<Card> cards = new ArrayList<Card>();
+    List<Card> cards = new ArrayList<>();
 
     for(Value value : Value.values()){
       for(Suit suit : Suit.values()){
@@ -39,8 +39,8 @@ public class Deck {
   }
 
   public Card draw(){
-    Card nextCard = this.cards.get(0);
-    this.cards.remove(0);
+    Card nextCard = cards.get(cards.size() -1);
+    cards.remove(cards.size() -1);
 
     return nextCard;
   }

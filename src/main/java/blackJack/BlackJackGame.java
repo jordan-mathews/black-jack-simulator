@@ -1,20 +1,20 @@
 package blackJack;
 
 public class BlackJackGame {
-  private Player playerOne;
-  private Player dealer;
-  private Deck deck;
+  private final Player playerOne;
+  private final Player dealer;
+  private final Deck deck;
 
   public BlackJackGame(){
-    this.deck = new Deck().shuffle();
-    this.dealer = new Player("Dealer");
     this.playerOne = new Player("Sam", 17);
+    this.dealer = new Player("Dealer");
+    this.deck = new Deck().shuffle();
   }
 
   public BlackJackGame(Deck deck){
-    this.deck = deck.shuffle();
-    this.dealer = new Player("Dealer");
     this.playerOne = new Player("Sam", 17);
+    this.dealer = new Player("Dealer");
+    this.deck = deck.shuffle();
   }
 
   public Player getDealer() {
@@ -52,18 +52,18 @@ public class BlackJackGame {
     continuousDraw(dealer, playerOne.getScore() +1);
     if(dealer.hasLost()) return playerOne;
 
-    return playerOne.compareTo(dealer) == 1 ? playerOne : dealer;
+    return playerOne.compareTo(dealer) > 0 ? playerOne : dealer;
   }
 
   public void deal(Player player){
-    if(!deck.getCards().isEmpty()) return;
+    if(deck.getCards().isEmpty()) return;
 
     Card card = deck.draw();
     player.addToHand(card);
   }
 
   public void continuousDraw(Player player, int drawLimit){
-    if(player.getScore() >= drawLimit) return;
+    if(player.getScore() >= drawLimit || deck.getCards().isEmpty()) return;
     deal(player);
     continuousDraw(player, drawLimit);
   }

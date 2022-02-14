@@ -10,14 +10,14 @@ public class CardTest {
   void correctStringValue(){
     Card card = new Card(Suit.CLUBS, Value.ACE);
 
-    assertEquals(card.toString(), Suit.CLUBS.toString() + Value.ACE.toString());
+    assertEquals(card.toString(), Suit.CLUBS.toString() + Value.ACE);
   }
 
   @Test
   void generateCardFromString(){
     Card card = Card.fromString("CA");
 
-    assertEquals(card.toString(), Suit.CLUBS.toString() + Value.ACE.toString());
+    assertEquals(card.toString(), Suit.CLUBS.toString() + Value.ACE);
   }
 
 }
